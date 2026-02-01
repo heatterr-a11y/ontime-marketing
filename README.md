@@ -71,3 +71,26 @@ This project and its contents are proprietary and confidential. Unauthorized cop
 - Icons: [Heroicons](https://heroicons.com/)
 - Fonts: [Google Fonts](https://fonts.google.com/) (Inter & Space Grotesk)
 
+# OnTime Marketing Inc.
+
+![Logo](logo.jpg)
+
+**Temporal Intent Synchronization Engine**
+
+🌐 **[Live Website](https://heatterr-a11y.github.io/-ontime-marketing/)**
+
+## Our Technologies
+
+| Platform | Description |
+|----------|-------------|
+| **TISE** | Temporal Intent Synchronization Engine |
+| **DTIF** | Decentralized Temporal Intent Framework |
+| **OnTime TIDE** | Temporal Intent Distribution Engine |
+
+## Contact
+
+📧 **heat.terr@iCloud.com**
+
+---
+
+© 2026 OnTime Marketing Inc. - All Rights Reserved
