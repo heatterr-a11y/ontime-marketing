@@ -6,6 +6,8 @@
   <title>OnTime Marketing — Sync Reality</title>
   <meta name="description" content="OnTime Marketing synchronizes intent, action, and outcome in real time. Make latency obsolete." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#00f0ff">
 </head>
 <body>
 <p class="timestamp"></p>
@@ -24,11 +26,13 @@
   </div>
 </header>
 
+<!-- Problem Section -->
 <section class="problem" role="region" aria-labelledby="problem-title">
   <h2 id="problem-title">The Problem</h2>
   <p>Systems react too late. Decisions lag behind reality. Opportunities appear — then vanish.</p>
 </section>
 
+<!-- Solution Section -->
 <section class="solution" role="region" aria-labelledby="solution-title">
   <h2 id="solution-title">The OnTime Solution</h2>
   <div class="grid">
@@ -38,19 +42,14 @@
   </div>
 </section>
 
+<!-- Latency Section -->
 <section class="latency" role="region" aria-labelledby="latency-title">
   <h2 id="latency-title">Latency Impact Score</h2>
   <label>Decision Delay (ms) <input id="delayInput" type="number" value="250" /></label>
   <p class="score" aria-live="polite">Estimated Impact: <span id="scoreValue">—</span></p>
 </section>
 
-<section class="proof" role="region" aria-labelledby="proof-title">
-  <h2 id="proof-title">Why It Works</h2>
-  <svg viewBox="0 0 600 120" class="timeline" aria-hidden="true">
-    <path id="timelinePath" d="M20 60 Q300 60 580 60" fill="none" stroke="currentColor" stroke-width="4" />
-  </svg>
-</section>
-
+<!-- Temporal Engine -->
 <section class="engine" aria-labelledby="engine-title">
   <h2 id="engine-title">Temporal Engine Demo</h2>
   <p class="engine-desc">Drag the timeline. Watch intent synchronize into outcome — in real time.</p>
@@ -73,7 +72,7 @@
 </section>
 
 <template id="deckTemplate">
-  <!-- Your slides go here -->
+  <!-- Slides go here -->
 </template>
 
 <footer role="contentinfo"><p>© 2026 OnTime Marketing Inc.</p></footer>
