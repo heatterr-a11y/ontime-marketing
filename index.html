@@ -53,6 +53,12 @@
 <section class="engine" aria-labelledby="engine-title">
   <h2 id="engine-title">Temporal Engine Demo</h2>
   <p class="engine-desc">Drag the timeline. Watch intent synchronize into outcome — in real time.</p>
+
+  <!-- SVG timeline used by script.js -->
+  <svg class="timeline" viewBox="0 0 600 120" aria-hidden="true" focusable="false">
+    <path id="timelinePath" d="M20 60 Q300 60 580 60" stroke="var(--accent)" stroke-width="3" fill="none" stroke-linecap="round" />
+  </svg>
+
   <div class="engine-visual" role="group" aria-label="Temporal synchronization demo">
     <div class="node" id="intent">Intent</div>
     <div class="node" id="decision">Decision</div>
@@ -72,7 +78,37 @@
 </section>
 
 <template id="deckTemplate">
-  <!-- Slides go here -->
+  <div class="slide" data-narration="Welcome to OnTime Marketing.">
+    <h1>OnTime Marketing</h1>
+    <p>Sync reality: intent, decision, and outcome.</p>
+  </div>
+
+  <div class="slide" data-narration="The problem: latency causes missed opportunities.">
+    <h2>The Problem</h2>
+    <p>Systems react too late — opportunities vanish before action completes.</p>
+  </div>
+
+  <div class="slide" data-narration="Our solution synchronizes intent across networks in real time.">
+    <h2>The OnTime Solution</h2>
+    <ul>
+      <li>Intent Synchronization</li>
+      <li>Real-Time Coordination</li>
+      <li>Temporal Advantage</li>
+    </ul>
+  </div>
+
+  <div class="slide" data-narration="Latency metrics show efficiency retained.">
+    <h2>Metrics</h2>
+    <p id="deckLatency">—</p>
+    <div class="metric-bar" aria-hidden="true">
+      <div class="metric-fill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="slide" data-narration="Request early access or contact for investor materials.">
+    <h2>Join the Temporal Shift</h2>
+    <p>Request early access or contact us: heat.terr@icloud.com</p>
+  </div>
 </template>
 
 <footer role="contentinfo"><p>© 2026 OnTime Marketing Inc.</p></footer>
