@@ -137,3 +137,23 @@ if (timeRange && path) {
   }
 
 });
+/* -------------------------
+   VOICE NARRATION
+   ------------------------- */
+const slides = document.querySelectorAll("[data-narration]");
+let currentUtterance = null;
+
+function speak(text) {
+  if (!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  currentUtterance = new SpeechSynthesisUtterance(text);
+  currentUtterance.rate = 0.9;
+  currentUtterance.pitch = 1;
+  speechSynthesis.speak(currentUtterance);
+}
+
+slides.forEach(slide => {
+  slide.addEventListener("mouseenter", () => {
+    speak(slide.dataset.narration);
+  });
+});
