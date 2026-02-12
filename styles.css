@@ -360,3 +360,25 @@ footer {
     position: fixed;
   }
 }
+.engine {
+  position: relative;
+  padding: 40px 0;
+}
+
+.engine-visual {
+  position: relative;
+  height: 120px;
+}
+
+.node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 14px;
+  background: #00f0ff;
+  color: #000;
+  border-radius: 20px;
+  font-weight: bold;
+  transform: translate(0, 0);
+  transition: transform 0.1s linear;
+}
