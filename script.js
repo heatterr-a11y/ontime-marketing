@@ -77,20 +77,41 @@ if (timeRange && path) {
   });
 }
 
-  /* -------------------------
-     INVESTOR MODE
-     ------------------------- */
-  const investorToggle = document.getElementById("investorToggle");
-
-  if (investorToggle) {
-    investorToggle.addEventListener("click", () => {
-      document.body.classList.toggle("investor-mode");
-      investorToggle.textContent =
-        document.body.classList.contains("investor-mode")
-          ? "Exit Investor Mode"
-          : "Investor Mode";
-    });
+/* -------------------------
+   INVESTOR MODE — COPY + METRICS
+   ------------------------- */
+const investorCopy = {
+  on: {
+    headline: "Predictive Temporal Infrastructure",
+    subtitle: "Quantified latency advantage across synchronized networks."
+  },
+  off: {
+    headline: "Make Time Obsolete.",
+    subtitle: "OnTime Marketing synchronizes intent, decision, and action."
   }
+};
+
+const heroTitle = document.querySelector(".hero-content h1");
+const heroSubtitle = document.querySelector(".subtitle");
+
+if (investorToggle) {
+  investorToggle.addEventListener("click", () => {
+    const active = document.body.classList.toggle("investor-mode");
+    investorToggle.textContent = active ? "Exit Investor Mode" : "Investor Mode";
+
+    heroTitle.textContent = active
+      ? investorCopy.on.headline
+      : investorCopy.off.headline;
+
+    heroSubtitle.textContent = active
+      ? investorCopy.on.subtitle
+      : investorCopy.off.subtitle;
+
+    scoreValue.textContent = active
+      ? "↑ 37% efficiency retention @ 250ms"
+      : scoreValue.textContent;
+  });
+}
 
   /* -------------------------
      INVESTOR DECK EXPORT
