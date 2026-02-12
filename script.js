@@ -49,33 +49,46 @@ document.addEventListener("DOMContentLoaded", () => {
     updateLatencyScore();
   }
 
-/* -------------------------
-   SVG TIMELINE INTERPOLATION
-   ------------------------- */
-const path = document.getElementById("timelinePath");
-const nodes = {
-  intent: document.getElementById("intent"),
-  decision: document.getElementById("decision"),
-  outcome: document.getElementById("outcome")
-};
+document.addEventListener("DOMContentLoaded", () => {
 
-function moveNode(node, t) {
-  const length = path.getTotalLength();
-  const point = path.getPointAtLength(length * t);
-  node.style.transform = `translate(${point.x - 30}px, ${point.y - 30}px)`;
-}
+  const path = document.getElementById("timelinePath");
+  const slider = document.getElementById("timeRange");
 
-if (timeRange && path) {
-  timeRange.addEventListener("input", e => {
-    const t = e.target.value / 100;
+  const intent = document.getElementById("intent");
+  const decision = document.getElementById("decision");
+  const outcome = document.getElementById("outcome");
 
-    moveNode(nodes.intent, t * 0.6);
-    moveNode(nodes.decision, t * 0.8);
-    moveNode(nodes.outcome, t);
+  if (!path || !slider || !intent || !decision || !outcome) return;
 
-    timeRange.setAttribute("aria-valuenow", e.target.value);
+  // Wait for SVG layout
+  requestAnimationFrame(() => {
+
+    const length = path.getTotalLength();
+
+    function move(node, progress) {
+      const point = path.getPointAtLength(length * progress);
+      node.style.transform =
+        `translate(${point.x - 30}px, ${point.y - 20}px)`;
+    }
+
+    function update(value) {
+      const t = value / 100;
+
+      move(intent, t * 0.5);
+      move(decision, t * 0.75);
+      move(outcome, t);
+
+      slider.setAttribute("aria-valuenow", value);
+    }
+
+    slider.addEventListener("input", e => {
+      update(Number(e.target.value));
+    });
+
+    update(0);
   });
-}
+
+});
 
 /* -------------------------
    INVESTOR MODE — COPY + METRICS
