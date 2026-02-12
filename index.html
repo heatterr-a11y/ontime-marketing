@@ -1,82 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OnTime Marketing — Sync Reality</title>
-  <meta name="description" content="OnTime Marketing synchronizes intent, action, and outcome in real time. Make latency obsolete." />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="manifest" href="manifest.json" />
+  <meta name="description" content="OnTime Marketing synchronizes intent, action, and outcome in real time. Make latency obsolete.">
   <meta name="theme-color" content="#00f0ff">
+
+  <!-- GitHub Pages safe relative paths -->
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="manifest" href="./manifest.json">
 </head>
+
 <body>
-<p class="timestamp"></p>
+
+<p class="timestamp" aria-live="polite"></p>
 
 <header class="hero" role="banner">
-  <nav class="nav" role="navigation">
+  <nav class="nav" aria-label="Primary Navigation">
     <div class="brand">OnTime</div>
     <a href="#cta" class="btn secondary">Get Synced</a>
   </nav>
-  <button id="themeToggle" aria-label="Toggle dark or light theme" aria-pressed="false" class="btn secondary">☀︎ / ☾</button>
+
+  <button id="themeToggle"
+          class="btn secondary"
+          aria-label="Toggle dark or light theme"
+          aria-pressed="false">
+    ☀︎ / ☾
+  </button>
 
   <div class="hero-content">
     <h1>Make Time Obsolete.</h1>
-    <p class="subtitle">OnTime Marketing synchronizes intent, decision, and action across networks — so outcomes happen exactly when they should.</p>
+    <p class="subtitle">
+      OnTime Marketing synchronizes intent, decision, and action across networks —
+      so outcomes happen exactly when they should.
+    </p>
     <a href="#cta" class="btn primary">Start Synced Now</a>
   </div>
 </header>
 
-<!-- Problem Section -->
-<section class="problem" role="region" aria-labelledby="problem-title">
-  <h2 id="problem-title">The Problem</h2>
-  <p>Systems react too late. Decisions lag behind reality. Opportunities appear — then vanish.</p>
-</section>
+<main id="main-content">
 
-<!-- Solution Section -->
-<section class="solution" role="region" aria-labelledby="solution-title">
-  <h2 id="solution-title">The OnTime Solution</h2>
-  <div class="grid">
-    <div class="card"><h3>Intent Synchronization</h3><p>Aligns user intent across platforms before fragmentation occurs.</p></div>
-    <div class="card"><h3>Real-Time Coordination</h3><p>Decisions propagate instantly — no delay, no drift.</p></div>
-    <div class="card"><h3>Temporal Advantage</h3><p>You don’t react faster. You arrive early.</p></div>
-  </div>
-</section>
+  <!-- Problem Section -->
+  <section class="problem" aria-labelledby="problem-title">
+    <h2 id="problem-title">The Problem</h2>
+    <p>
+      Systems react too late. Decisions lag behind reality.
+      Opportunities appear — then vanish.
+    </p>
+  </section>
 
-<!-- Latency Section -->
-<section class="latency" role="region" aria-labelledby="latency-title">
-  <h2 id="latency-title">Latency Impact Score</h2>
-  <label>Decision Delay (ms) <input id="delayInput" type="number" value="250" /></label>
-  <p class="score" aria-live="polite">Estimated Impact: <span id="scoreValue">—</span></p>
-</section>
+  <!-- Solution Section -->
+  <section class="solution" aria-labelledby="solution-title">
+    <h2 id="solution-title">The OnTime Solution</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Intent Synchronization</h3>
+        <p>Aligns user intent across platforms before fragmentation occurs.</p>
+      </article>
 
-<!-- Temporal Engine -->
-<section class="engine" aria-labelledby="engine-title">
-  <h2 id="engine-title">Temporal Engine Demo</h2>
-  <p class="engine-desc">Drag the timeline. Watch intent synchronize into outcome — in real time.</p>
+      <article class="card">
+        <h3>Real-Time Coordination</h3>
+        <p>Decisions propagate instantly — no delay, no drift.</p>
+      </article>
 
-  <!-- SVG timeline used by script.js -->
-  <svg class="timeline" viewBox="0 0 600 120" aria-hidden="true" focusable="false">
-    <path id="timelinePath" d="M20 60 Q300 60 580 60" stroke="var(--accent)" stroke-width="3" fill="none" stroke-linecap="round" />
-  </svg>
+      <article class="card">
+        <h3>Temporal Advantage</h3>
+        <p>You don’t react faster. You arrive early.</p>
+      </article>
+    </div>
+  </section>
 
-  <div class="engine-visual" role="group" aria-label="Temporal synchronization demo">
-    <div class="node" id="intent">Intent</div>
-    <div class="node" id="decision">Decision</div>
-    <div class="node" id="outcome">Outcome</div>
-  </div>
-  <label for="timeRange" class="sr-only">Timeline control</label>
-  <input id="timeRange" type="range" min="0" max="100" value="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" />
-</section>
+  <!-- Latency Section -->
+  <section class="latency" aria-labelledby="latency-title">
+    <h2 id="latency-title">Latency Impact Score</h2>
 
-<button id="investorToggle" class="btn secondary">Investor Mode</button>
-<button id="exportDeck" class="btn primary">Send to Investor</button>
+    <label for="delayInput">Decision Delay (ms)</label>
+    <input id="delayInput" type="number" value="250" min="0">
 
-<section id="cta" class="cta" role="region" aria-labelledby="cta-title">
-  <h2 id="cta-title">Join the Temporal Shift</h2>
-  <p>Early access is limited. Sync first.</p>
-  <a href="mailto:heat.terr@icloud.com" class="btn primary">Request Access</a>
-</section>
+    <p class="score" aria-live="polite">
+      Estimated Impact: <span id="scoreValue">—</span>
+    </p>
+  </section>
 
+  <!-- Temporal Engine -->
+  <section class="engine" aria-labelledby="engine-title">
+    <h2 id="engine-title">Temporal Engine Demo</h2>
+    <p class="engine-desc">
+      Drag the timeline. Watch intent synchronize into outcome — in real time.
+    </p>
+
+    <svg class="timeline"
+         viewBox="0 0 600 120"
+         role="img"
+         aria-label="Timeline showing intent progressing to outcome">
+      <path id="timelinePath"
+            d="M20 60 Q300 60 580 60"
+            stroke="var(--accent)"
+            stroke-width="3"
+            fill="none"
+            stroke-linecap="round" />
+    </svg>
+
+    <div class="engine-visual" role="group" aria-label="Temporal synchronization demo">
+      <div class="node" id="intent">Intent</div>
+      <div class="node" id="decision">Decision</div>
+      <div class="node" id="outcome">Outcome</div>
+    </div>
+
+    <label for="timeRange" class="sr-only">Timeline control</label>
+    <input id="timeRange"
+           type="range"
+           min="0"
+           max="100"
+           value="0"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           aria-valuenow="0">
+  </section>
+
+  <!-- Controls -->
+  <section class="controls" aria-label="Investor controls">
+    <button id="investorToggle" class="btn secondary">Investor Mode</button>
+    <button id="exportDeck" class="btn primary">Send to Investor</button>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="cta" aria-labelledby="cta-title">
+    <h2 id="cta-title">Join the Temporal Shift</h2>
+    <p>Early access is limited. Sync first.</p>
+    <a href="mailto:heat.terr@icloud.com" class="btn primary">
+      Request Access
+    </a>
+  </section>
+
+</main>
+
+<!-- Investor Deck Template -->
 <template id="deckTemplate">
   <div class="slide" data-narration="Welcome to OnTime Marketing.">
     <h1>OnTime Marketing</h1>
@@ -107,17 +167,23 @@
 
   <div class="slide" data-narration="Request early access or contact for investor materials.">
     <h2>Join the Temporal Shift</h2>
-    <p>Request early access or contact us: heat.terr@icloud.com</p>
+    <p>Contact: heat.terr@icloud.com</p>
   </div>
 </template>
 
-<footer role="contentinfo"><p>© 2026 OnTime Marketing Inc.</p></footer>
+<footer role="contentinfo">
+  <p>© 2026 OnTime Marketing Inc.</p>
+</footer>
 
-<script src="script.js"></script>
+<script src="./script.js" defer></script>
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js').catch(console.error);
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .catch(console.error);
+  });
 }
 </script>
+
 </body>
 </html>
