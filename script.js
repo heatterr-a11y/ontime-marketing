@@ -49,31 +49,33 @@ document.addEventListener("DOMContentLoaded", () => {
     updateLatencyScore();
   }
 
-  /* -------------------------
-     TEMPORAL ENGINE (TIMELINE)
-     ------------------------- */
-  const timeRange = document.getElementById("timeRange");
-  const intent = document.getElementById("intent");
-  const decision = document.getElementById("decision");
-  const outcome = document.getElementById("outcome");
+/* -------------------------
+   SVG TIMELINE INTERPOLATION
+   ------------------------- */
+const path = document.getElementById("timelinePath");
+const nodes = {
+  intent: document.getElementById("intent"),
+  decision: document.getElementById("decision"),
+  outcome: document.getElementById("outcome")
+};
 
-  function syncTimeline(value) {
-    const base = value * 2;
+function moveNode(node, t) {
+  const length = path.getTotalLength();
+  const point = path.getPointAtLength(length * t);
+  node.style.transform = `translate(${point.x - 30}px, ${point.y - 30}px)`;
+}
 
-    intent.style.transform = `translateX(${base}px)`;
-    decision.style.transform = `translateX(${base * 1.4}px)`;
-    outcome.style.transform = `translateX(${base * 1.9}px)`;
-  }
+if (timeRange && path) {
+  timeRange.addEventListener("input", e => {
+    const t = e.target.value / 100;
 
-  if (timeRange && intent && decision && outcome) {
-    timeRange.addEventListener("input", e => {
-      const value = Number(e.target.value);
-      syncTimeline(value);
-      timeRange.setAttribute("aria-valuenow", value);
-    });
+    moveNode(nodes.intent, t * 0.6);
+    moveNode(nodes.decision, t * 0.8);
+    moveNode(nodes.outcome, t);
 
-    syncTimeline(0);
-  }
+    timeRange.setAttribute("aria-valuenow", e.target.value);
+  });
+}
 
   /* -------------------------
      INVESTOR MODE
